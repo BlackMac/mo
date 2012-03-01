@@ -36,6 +36,12 @@ void IfStatementWithNegatedConditionRule::apply(CXCursor& node, CXCursor& parent
   }
 }
 
+vector<string> IfStatementWithNegatedConditionRule::nodes() {
+  string nodeTypes[] = { "IfStmt" };
+  vector<string> nodes(nodeTypes, nodeTypes + sizeof(nodeTypes) / sizeof(string));
+  return nodes;
+}
+
 const string IfStatementWithNegatedConditionRule::name() const {
   return "if statement with negated condition";
 }

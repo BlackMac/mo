@@ -73,6 +73,12 @@ void UnusedMethodParameterRule::apply(CXCursor& node, CXCursor& parentNode, Viol
   }
 }
 
+vector<string> UnusedMethodParameterRule::nodes() {
+  string nodeTypes[] = { "ParmVarDecl" };
+  vector<string> nodes(nodeTypes, nodeTypes + sizeof(nodeTypes) / sizeof(string));
+  return nodes;
+}
+
 const string UnusedMethodParameterRule::name() const {
   return "unused method parameter";
 }

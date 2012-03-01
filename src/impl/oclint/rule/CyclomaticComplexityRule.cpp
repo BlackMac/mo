@@ -41,6 +41,12 @@ void CyclomaticComplexityRule::apply(CXCursor& node, CXCursor& parentNode, Viola
   }
 }
 
+vector<string> CyclomaticComplexityRule::nodes() {
+  string nodeTypes[] = { "ObjCMethodDecl", "FunctionDecl" };
+  vector<string> nodes(nodeTypes, nodeTypes + sizeof(nodeTypes) / sizeof(string));
+  return nodes;
+}
+
 const string CyclomaticComplexityRule::name() const {
   return "high cyclomatic complexity";
 }

@@ -46,6 +46,12 @@ void UnreachableCodeRule::apply(CXCursor& node, CXCursor& parentNode, ViolationS
   }
 }
 
+vector<string> UnreachableCodeRule::nodes() {
+  string nodeTypes[] = { "CompoundStmt" };
+  vector<string> nodes(nodeTypes, nodeTypes + sizeof(nodeTypes) / sizeof(string));
+  return nodes;
+}
+
 const string UnreachableCodeRule::name() const {
   return "unreachable code";
 }

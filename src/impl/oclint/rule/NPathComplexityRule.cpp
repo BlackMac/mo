@@ -42,6 +42,12 @@ void NPathComplexityRule::apply(CXCursor& node, CXCursor& parentNode, ViolationS
   }
 }
 
+vector<string> NPathComplexityRule::nodes() {
+  string nodeTypes[] = { "ObjCMethodDecl", "FunctionDecl" };
+  vector<string> nodes(nodeTypes, nodeTypes + sizeof(nodeTypes) / sizeof(string));
+  return nodes;
+}
+
 const string NPathComplexityRule::name() const {
   return "high npath complexity";
 }

@@ -54,6 +54,12 @@ void RedundantLocalVariableRule::apply(CXCursor& node, CXCursor& parentNode, Vio
   }
 }
 
+vector<string> RedundantLocalVariableRule::nodes() {
+  string nodeTypes[] = { "ReturnStmt" };
+  vector<string> nodes(nodeTypes, nodeTypes + sizeof(nodeTypes) / sizeof(string));
+  return nodes;
+}
+
 const string RedundantLocalVariableRule::name() const {
   return "redundant local variable";
 }

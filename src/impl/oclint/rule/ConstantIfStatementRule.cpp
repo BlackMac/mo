@@ -28,6 +28,12 @@ void ConstantIfStatementRule::apply(CXCursor& node, CXCursor& parentNode, Violat
   }
 }
 
+vector<string> ConstantIfStatementRule::nodes() {
+  string nodeTypes[] = { "IfStmt" };
+  vector<string> nodes(nodeTypes, nodeTypes + sizeof(nodeTypes) / sizeof(string));
+  return nodes;
+}
+
 const string ConstantIfStatementRule::name() const {
   return "constant if statement";
 }

@@ -43,6 +43,12 @@ void LongParameterListRule::apply(CXCursor& node, CXCursor& parentNode, Violatio
   }
 }
 
+vector<string> LongParameterListRule::nodes() {
+  string nodeTypes[] = { "ObjCMethodDecl", "FunctionDecl" };
+  vector<string> nodes(nodeTypes, nodeTypes + sizeof(nodeTypes) / sizeof(string));
+  return nodes;
+}
+
 const string LongParameterListRule::name() const {
   return "long parameter list";
 }

@@ -22,6 +22,12 @@ void UnusedLocalVariableRule::apply(CXCursor& node, CXCursor& parentNode, Violat
   }
 }
 
+vector<string> UnusedLocalVariableRule::nodes() {
+  string nodeTypes[] = { "VarDecl" };
+  vector<string> nodes(nodeTypes, nodeTypes + sizeof(nodeTypes) / sizeof(string));
+  return nodes;
+}
+
 const string UnusedLocalVariableRule::name() const {
   return "unused local variable";
 }

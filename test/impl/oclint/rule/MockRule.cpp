@@ -32,6 +32,12 @@ void MockRule::apply(CXCursor& node, CXCursor& parentNode, ViolationSet& violati
   }
 }
 
+vector<string> MockRule::nodes() {
+  string nodeTypes[] = { "SwitchStmt" };
+  vector<string> nodes(nodeTypes, nodeTypes + sizeof(nodeTypes) / sizeof(string));
+  return nodes;
+}
+
 const string MockRule::name() const {
   return _name;
 }

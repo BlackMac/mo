@@ -86,6 +86,12 @@ void RedundantIfStatementRule::apply(CXCursor& node, CXCursor& parentNode, Viola
   }
 }
 
+vector<string> RedundantIfStatementRule::nodes() {
+  string nodeTypes[] = { "IfStmt" };
+  vector<string> nodes(nodeTypes, nodeTypes + sizeof(nodeTypes) / sizeof(string));
+  return nodes;
+}
+
 const string RedundantIfStatementRule::name() const {
   return "redundant if statement";
 }

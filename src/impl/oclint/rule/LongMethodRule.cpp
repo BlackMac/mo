@@ -46,6 +46,12 @@ void LongMethodRule::apply(CXCursor& node, CXCursor& parentNode, ViolationSet& v
   }
 }
 
+vector<string> LongMethodRule::nodes() {
+  string nodeTypes[] = { "ObjCMethodDecl", "FunctionDecl" };
+  vector<string> nodes(nodeTypes, nodeTypes + sizeof(nodeTypes) / sizeof(string));
+  return nodes;
+}
+
 const string LongMethodRule::name() const {
   return "long method";
 }

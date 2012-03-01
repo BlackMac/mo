@@ -29,6 +29,12 @@ void EmptyIfStatementRule::apply(CXCursor& node, CXCursor& parentNode, Violation
   }
 }
 
+vector<string> EmptyIfStatementRule::nodes() {
+  string nodeTypes[] = { "IfStmt" };
+  vector<string> nodes(nodeTypes, nodeTypes + sizeof(nodeTypes) / sizeof(string));
+  return nodes;
+}
+
 const string EmptyIfStatementRule::name() const {
   return "empty if statement";
 }

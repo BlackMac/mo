@@ -2,6 +2,8 @@
 #define OCLINT_RULESET_H
 
 #include <vector>
+#include <map>
+#include <string>
 
 using namespace std;
 
@@ -13,6 +15,9 @@ class ViolationSet;
 class RuleSet {
 private:
   static vector<Rule*>* _rules;
+  static map<string, vector<Rule*> >* _registry;
+  
+  static void apply(string nodeType, CXCursor& node, CXCursor& parentNode, ViolationSet& violationSet);
   
 public:
   RuleSet(Rule* rule);

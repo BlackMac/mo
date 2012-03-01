@@ -16,6 +16,7 @@ private:
   
 public:
   virtual void apply(CXCursor& node, CXCursor& parentNode, ViolationSet& violationSet);
+  virtual vector<string> nodes();
   virtual const string name() const;
 };
 
