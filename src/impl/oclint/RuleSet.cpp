@@ -48,6 +48,7 @@ void RuleSet::apply(CXCursor& node, CXCursor& parentNode, ViolationSet& violatio
   Stmt *stmt = CursorHelper::getStmt(node);
   if (stmt) {
     apply(stmt->getStmtClassName(), node, parentNode, violationSet);
+    return;
   }
   Decl *decl = CursorHelper::getDecl(node);
   if (decl) {
